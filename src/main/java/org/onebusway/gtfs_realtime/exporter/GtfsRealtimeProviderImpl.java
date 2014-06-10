@@ -29,6 +29,8 @@ public class GtfsRealtimeProviderImpl implements GtfsRealtimeMutableProvider {
   private volatile FeedMessage _vehiclePositions = GtfsRealtimeLibrary.createFeedMessageBuilder().build();
 
   private volatile FeedMessage _alerts = GtfsRealtimeLibrary.createFeedMessageBuilder().build();
+  
+  private volatile long _lastUpdateTimestamp = 0;
 
   private List<GtfsRealtimeListener> _listeners = new ArrayList<GtfsRealtimeListener>();
 
@@ -100,4 +102,15 @@ public class GtfsRealtimeProviderImpl implements GtfsRealtimeMutableProvider {
   public void removeGtfsRealtimeListener(GtfsRealtimeListener listener) {
     _listeners.remove(listener);
   }
+
+  @Override
+  public void setLastUpdateTimestamp(long timestamp) {
+    _lastUpdateTimestamp = timestamp;
+  }
+
+  @Override
+  public long getLastUpdateTimestamp() {
+    return _lastUpdateTimestamp;
+  }
+  
 }

@@ -28,4 +28,10 @@ public interface GtfsRealtimeProvider {
   public void addGtfsRealtimeListener(GtfsRealtimeListener listener);
   
   public void removeGtfsRealtimeListener(GtfsRealtimeListener listener);
+  
+  public void setLastUpdateTimestamp(long timestamp);
+  
+  public long getLastUpdateTimestamp();
+
+
 }
